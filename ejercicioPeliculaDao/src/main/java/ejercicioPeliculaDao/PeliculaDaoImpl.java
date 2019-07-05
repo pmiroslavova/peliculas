@@ -45,6 +45,16 @@ public class PeliculaDaoImpl implements IPeliculasDao<Pelicula>{
 			return listaPeliculas.get(id);
 		}
 		return null;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 }
