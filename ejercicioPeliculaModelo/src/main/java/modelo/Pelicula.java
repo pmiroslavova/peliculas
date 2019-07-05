@@ -16,14 +16,6 @@ public class Pelicula {
 		secuencia = new AtomicInteger();
 	}
 
-	public Pelicula(String titulo, Director director, String sinopsis) {
-		super();
-		this.id = secuencia.incrementAndGet();
-		this.titulo = titulo;
-		this.director = director;
-		this.sinopsis = sinopsis;
-		this.categorias = new ArrayList<Categorias>();
-	}
 
 	public Integer getId() {
 		return id;

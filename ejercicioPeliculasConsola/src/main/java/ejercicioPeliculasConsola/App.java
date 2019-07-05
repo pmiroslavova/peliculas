@@ -3,52 +3,94 @@ package ejercicioPeliculasConsola;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import ejercicioPeliculasNegocio.GestorPeliculas;
 import modelo.Director;
 import modelo.Pelicula;
 
 public class App {
 	public static void main (String[] args) {
-		GestorPeliculas gestor = new GestorPeliculas();
-		
+		ApplicationContext context = new ClassPathXmlApplicationContext("pelicula.xml");
 		List<Pelicula> insertar = new ArrayList<Pelicula>();
 		List<Pelicula> modificar = new ArrayList<Pelicula>();
 		List<Pelicula> borrar = new ArrayList<Pelicula>();
 		
-		Pelicula p1 = new Pelicula("hh", new Director("hola"),"bb");
-		Pelicula p2 = new Pelicula("aa", new Director("hola"),"dd");
-		Pelicula p3 = new Pelicula("ww", new Director("hey"),"gg");
-		Pelicula p4 = new Pelicula("qq", new Director("siii"),"ee");
-		Pelicula p5 = new Pelicula("q", new Director("we"),"i");
-		Pelicula p6 = new Pelicula("e", new Director("res"),"r");
-		Pelicula p7 = new Pelicula("d", new Director("qqqqeee"),"m");
-		Pelicula p8 = new Pelicula("n", new Director("weee"),"o");
-		Pelicula p9 = new Pelicula("s", new Director("stas"),"t");
-		Pelicula p10 = new Pelicula("eeee", new Director("plam"),"pppp");
+		GestorPeliculas gestor = context.getBean("gestor", GestorPeliculas.class);
 		
+		Pelicula pelicula1 = context.getBean("p1", Pelicula.class);
+		pelicula1.setTitulo("p1");
+		pelicula1.setDirector(new Director("Pepe"));
+		pelicula1.setSinopsis("chaachiiii");
 		
+		Pelicula pelicula2 = context.getBean("p1", Pelicula.class);
+		pelicula2.setTitulo("p2");
+		pelicula2.setDirector(new Director("Jorge"));
+		pelicula2.setSinopsis("piruliiii");
 		
-		insertar.add(p1);
-		insertar.add(p2);
-		insertar.add(p3);
-		insertar.add(p4);
-		borrar.add(p4);
-		insertar.add(p5);
-		borrar.add(p5);
-		insertar.add(p6);
-		insertar.add(p7);
-		insertar.add(p8);
-		insertar.add(p9);
-		insertar.add(p10);
+		Pelicula pelicula3 = context.getBean("p1", Pelicula.class);
+		pelicula3.setTitulo("p3");
+		pelicula3.setDirector(new Director("Stas"));
+		pelicula3.setSinopsis("personiisss");
+		
+		Pelicula pelicula4 = context.getBean("p1", Pelicula.class);
+		pelicula4.setTitulo("p4");
+		pelicula4.setDirector(new Director("Plam"));
+		pelicula4.setSinopsis("guapiiissss");
+		
+		Pelicula pelicula5 = context.getBean("p1", Pelicula.class);
+		pelicula5.setTitulo("p5");
+		pelicula5.setDirector(new Director("Cris"));
+		pelicula5.setSinopsis("bebesiita");
+		
+		Pelicula pelicula6 = context.getBean("p1", Pelicula.class);
+		pelicula6.setTitulo("p6");
+		pelicula6.setDirector(new Director("Belen"));
+		pelicula6.setSinopsis("quiero");
+		
+		Pelicula pelicula7 = context.getBean("p1", Pelicula.class);
+		pelicula7.setTitulo("p7");
+		pelicula7.setDirector(new Director("Evavi"));
+		pelicula7.setSinopsis("moriiiiiirrr");
+		
+		Pelicula pelicula8 = context.getBean("p1", Pelicula.class);
+		pelicula8.setTitulo("p8");
+		pelicula8.setDirector(new Director("Jessikitah"));
+		pelicula8.setSinopsis("baaaiii");
+		
+		Pelicula pelicula9 = context.getBean("p1", Pelicula.class);
+		pelicula9.setTitulo("p9");
+		pelicula9.setDirector(new Director("Alinn"));
+		pelicula9.setSinopsis("baiiii");
+		
+		Pelicula pelicula10 = context.getBean("p1", Pelicula.class);
+		pelicula10.setTitulo("p10");
+		pelicula10.setDirector(new Director("Pepe"));
+		pelicula10.setSinopsis("pumm");
+
+		
+		insertar.add(pelicula1);
+		insertar.add(pelicula2);
+		insertar.add(pelicula3);
+		insertar.add(pelicula4);
+		borrar.add(pelicula4);
+		insertar.add(pelicula5);
+		borrar.add(pelicula5);
+		insertar.add(pelicula6);
+		insertar.add(pelicula7);
+		insertar.add(pelicula8);
+		insertar.add(pelicula9);
+		insertar.add(pelicula10);
 
 		
 		
 		gestor.altaPelicula(insertar);
 		System.out.println(gestor.listaPeliculas());
-		p1.setTitulo("cambiado");
-		p2.setTitulo("cambiado2");
-		modificar.add(p1);
-		modificar.add(p2);
+		pelicula1.setTitulo("cambiado");
+		pelicula2.setTitulo("cambiado2");
+		modificar.add(pelicula1);
+		modificar.add(pelicula2);
 		gestor.updatePelicula(modificar);
 		System.out.println(gestor.listaPeliculas());
 		gestor.delete(borrar);

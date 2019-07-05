@@ -10,10 +10,14 @@ public class PeliculaDaoImpl implements IPeliculasDao<Pelicula>{
 	
 	private Map<Integer,Pelicula> listaPeliculas;
 	
-	public PeliculaDaoImpl(Map<Integer, Pelicula> listaPeliculas) {
-		super();
+	public Map<Integer, Pelicula> getListaPeliculas() {
+		return listaPeliculas;
+	}
+
+	public void setListaPeliculas(Map<Integer, Pelicula> listaPeliculas) {
 		this.listaPeliculas = listaPeliculas;
 	}
+
 
 	public Pelicula create(Pelicula pelicula) {
 		if(!listaPeliculas.containsKey(pelicula.getId())) {
@@ -45,15 +49,6 @@ public class PeliculaDaoImpl implements IPeliculasDao<Pelicula>{
 			return listaPeliculas.get(id);
 		}
 		return null;
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 	}
 
