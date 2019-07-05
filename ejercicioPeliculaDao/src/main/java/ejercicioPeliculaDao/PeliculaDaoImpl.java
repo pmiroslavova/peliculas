@@ -27,11 +27,9 @@ public class PeliculaDaoImpl implements IPeliculasDao<Pelicula>{
 	}
 
 	public Pelicula update(Pelicula pelicula) {
-		if(listaPeliculas.containsKey(pelicula.getId())) {
-			listaPeliculas.put(pelicula.getId(), pelicula);
-			return pelicula;
-		}
-		return null;
+		listaPeliculas.replace(pelicula.getId(), pelicula);
+		return pelicula;
+
 	}
 
 	public Pelicula delete(Pelicula pelicula) {

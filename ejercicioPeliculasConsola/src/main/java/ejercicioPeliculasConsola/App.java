@@ -1,11 +1,9 @@
 package ejercicioPeliculasConsola;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import ejercicioPeliculasNegocio.GestorPeliculas;
-import modelo.Categorias;
 import modelo.Director;
 import modelo.Pelicula;
 
@@ -14,6 +12,8 @@ public class App {
 		GestorPeliculas gestor = new GestorPeliculas();
 		
 		List<Pelicula> insertar = new ArrayList<Pelicula>();
+		List<Pelicula> modificar = new ArrayList<Pelicula>();
+		List<Pelicula> borrar = new ArrayList<Pelicula>();
 		
 		Pelicula p1 = new Pelicula("hh", new Director("hola"),"bb");
 		Pelicula p2 = new Pelicula("aa", new Director("hola"),"dd");
@@ -26,18 +26,32 @@ public class App {
 		Pelicula p9 = new Pelicula("s", new Director("stas"),"t");
 		Pelicula p10 = new Pelicula("eeee", new Director("plam"),"pppp");
 		
+		
+		
 		insertar.add(p1);
 		insertar.add(p2);
 		insertar.add(p3);
 		insertar.add(p4);
+		borrar.add(p4);
 		insertar.add(p5);
+		borrar.add(p5);
 		insertar.add(p6);
 		insertar.add(p7);
 		insertar.add(p8);
 		insertar.add(p9);
 		insertar.add(p10);
+
+		
 		
 		gestor.altaPelicula(insertar);
+		System.out.println(gestor.listaPeliculas());
+		p1.setTitulo("cambiado");
+		p2.setTitulo("cambiado2");
+		modificar.add(p1);
+		modificar.add(p2);
+		gestor.updatePelicula(modificar);
+		System.out.println(gestor.listaPeliculas());
+		gestor.delete(borrar);
 		System.out.println(gestor.listaPeliculas());
 		
 		
