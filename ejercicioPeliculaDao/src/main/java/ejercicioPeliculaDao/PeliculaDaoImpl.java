@@ -3,11 +3,17 @@ package ejercicioPeliculaDao;
 import java.util.Collection;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
+
 import modelo.Pelicula;
 
-
+@Repository
+@Qualifier("dao")
 public class PeliculaDaoImpl implements IPeliculasDao<Pelicula>{
-	
+	@Autowired
+	@Qualifier("mapa")
 	private Map<Integer,Pelicula> listaPeliculas;
 	
 	public Map<Integer, Pelicula> getListaPeliculas() {

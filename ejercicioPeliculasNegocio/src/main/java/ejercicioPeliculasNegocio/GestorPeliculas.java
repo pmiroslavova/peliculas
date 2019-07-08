@@ -3,13 +3,20 @@ package ejercicioPeliculasNegocio;
 import java.util.Collection;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Service;
 
 import ejercicioPeliculaDao.IPeliculasDao;
 import modelo.Pelicula;
 
+@Service
+@Qualifier("gestor")
 public class GestorPeliculas {
+	@Autowired
+	@Qualifier("dao")
 	private IPeliculasDao<Pelicula> miDaoPelicula;
 	
 	
