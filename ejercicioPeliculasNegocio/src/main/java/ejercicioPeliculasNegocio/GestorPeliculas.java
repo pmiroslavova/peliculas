@@ -23,6 +23,7 @@ public class GestorPeliculas {
 		
 		for (Pelicula peli: pelisAInsertar) {
 			miDaoPelicula.create(peli);
+			//System.out.println(peli);
 		}
 		
 		return null;

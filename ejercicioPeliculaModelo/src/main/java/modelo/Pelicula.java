@@ -5,18 +5,12 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Pelicula {
-	private static AtomicInteger secuencia;
 	private Integer id;
 	private String titulo;
 	private Director director;
 	private String sinopsis;
 	private List<Categorias> categorias;
 	
-	static {
-		secuencia = new AtomicInteger();
-	}
-
-
 	public Integer getId() {
 		return id;
 	}
@@ -60,7 +54,7 @@ public class Pelicula {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
 		return result;
 	}
 
@@ -73,12 +67,15 @@ public class Pelicula {
 		if (getClass() != obj.getClass())
 			return false;
 		Pelicula other = (Pelicula) obj;
-		if (id == null) {
-			if (other.id != null)
+		if (titulo == null) {
+			if (other.titulo != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!titulo.equals(other.titulo))
 			return false;
 		return true;
 	}
-	
+
+
+
+
 }

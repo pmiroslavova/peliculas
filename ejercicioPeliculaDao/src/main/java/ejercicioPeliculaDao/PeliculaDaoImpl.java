@@ -20,8 +20,8 @@ public class PeliculaDaoImpl implements IPeliculasDao<Pelicula>{
 
 
 	public Pelicula create(Pelicula pelicula) {
-		if(!listaPeliculas.containsKey(pelicula.getId())) {
-			listaPeliculas.putIfAbsent(pelicula.getId(), pelicula);
+		if(!listaPeliculas.containsKey(pelicula.hashCode())) {
+			listaPeliculas.putIfAbsent(pelicula.hashCode(), pelicula);
 		}
 		return pelicula;
 	}
@@ -31,14 +31,14 @@ public class PeliculaDaoImpl implements IPeliculasDao<Pelicula>{
 	}
 
 	public Pelicula update(Pelicula pelicula) {
-		listaPeliculas.replace(pelicula.getId(), pelicula);
+		listaPeliculas.replace(pelicula.hashCode(), pelicula);
 		return pelicula;
 
 	}
 
 	public Pelicula delete(Pelicula pelicula) {
-		if(listaPeliculas.containsKey(pelicula.getId())) {
-			listaPeliculas.remove(pelicula.getId());
+		if(listaPeliculas.containsKey(pelicula.hashCode())) {
+			listaPeliculas.remove(pelicula.hashCode());
 			return pelicula;
 		}
 		return null;
